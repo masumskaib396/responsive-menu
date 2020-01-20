@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+
+	<style>
+		nav {
+	  margin: 0;
+	  padding: 0;
+	}
+
+	nav ul {
+	  display: flex;
+	  flex-direction: column;
+	  list-style-type: none;
+	  padding: 0;
+	  margin: 0;
+	  display: none;
+	}
+
+	nav ul.opening {
+	  display: block;
+	  height: 30px;
+	}
+
+	nav li { border-bottom: 1px solid #f6f4e2; }
+
+	nav li:last-child { border-bottom: none; }
+
+	nav a {
+	  color: #EBEBD3;
+	  background: #e7a119;
+	  display: block;
+	  padding: 1.5em 4em 1.5em 3em;
+	  text-transform: uppercase;
+	  text-decoration: none;
+	}
+
+	nav a:hover, nav a:focus {
+	 background: #E4B363;
+	  }
+
+	.site-nav--icon {
+	  font-size: 1.4em;
+	  margin-right: 1em;
+	  width: 1.1em;
+	  text-align: right;
+	  color: rgba(255,255,255,.4);
+	}
+		.menu-toggle {
+	  position: absolute;
+	  padding: 0.8em;
+	  top: 1em;
+	  right: .5em;
+	  cursor: pointer;
+	}
+
+	.hamburger, .hamburger::before, .hamburger::after {
+	  content: '';
+	  display: block;
+	  background: #EBEBD3;
+	  height: 3px;
+	  width: 2em;
+	  border-radius: 3px;
+	  -webkit-transition: all ease-in-out 350ms;
+	  transition: all ease-in-out 350ms;
+	}
+
+	.hamburger::before {
+	  -webkit-transform: translateY(-7px);
+	  transform: translateY(-7px);
+	}
+
+	.hamburger::after {
+	  -webkit-transform: translateY(4px);
+	  transform: translateY(4px);
+	}
+
+	.open .hamburger {
+	  -webkit-transform: rotate(45deg);
+	  transform: rotate(45deg);
+	}
+
+	.open .hamburger::before { display: none; }
+
+	.open .hamburger::after {
+	  -webkit-transform: translateY(-1px) rotate(-90deg);
+	  transform: translateY(-1px) rotate(-90deg);
+	}
+
+	@media (min-width: 991px) {
+
+		.menu-toggle { display: none; }
+
+		nav ul {
+		  display: flex;
+		  flex-direction: row;
+		  justify-content: flex-end;
+		}
+
+		nav li {
+		  flex: 1 1 auto;
+		  border: none;
+		}
+
+		nav li a {
+		  padding: 1.5em 1.3em 1.5em 1.3em;
+		  margin: 0;
+		  border: none;
+		  background-color: #f04343;
+		}
+
+		nav a:hover,  nav a:focus { background-color: rgba(255,255,255,.10); }
+
+		.logo {
+		  flex: 0 0 200px;
+		  margin: 0;
+		  padding-left: 20px;
+		}
+
+		nav {
+		  display: flex;
+		  flex-direction: row;
+		  justify-content: space-between;
+		  text-align: center;
+		  background-color: #f04343;
+		}
+
+		}
+		.header-menu ul li a.active {
+			border-bottom: 1px solid yellow;
+		}
+
+		.header-menu ul li:hover a {
+		    border-bottom: 1px solid yellow;
+		}
+		.wraper1 {
+		    height: 100vh;
+		}
+
+		#one{
+			background: #ddd
+		}
+		#two{
+			background: #222
+		}
+		#there{
+			background: #fff
+		}
+		#four{
+			background: #ccc
+		}
+		#five{
+			background: #f1f1f1
+		}
+		nav.site-nav.menu-fixed {
+		    position: fixed;
+		    width: 100%;
+		    left: 0;
+		    top: 0;
+		    z-index: 999;
+		}
+	</style>
+</head>
+<body>
+	
+
+
+	<nav class="site-nav">
+		<h1 class="logo">Hamburger<span> Navigation</span></h1>
+		  <div class="menu-toggle">
+		    <div class="hamburger"></div>
+		  </div>
+		  <div class="header-menu">
+		  	 <ul class="open desktop">
+				  <li><a href="#one"  class="active">Home</a></li>
+				  <li><a href="#two">About us</a></li>
+				  <li>
+				  	<a href="#there">Download Plugin</a>
+				  </li>
+				  <li><a href="#four">Latest News</a></li>
+				  <li><a href="#five"> five</a></li>
+			  </ul>
+		  </div>
+	</nav>
+
+	<div class="wraper">
+		<div class="wraper1" id="one">
+			<h1>one</h1>
+			<ul>
+				<li><a href="#">label one</a></li>
+				<li><a href="#">label tow</a></li>
+				<li><a href="#">label there</a></li>
+			</ul>
+		</div>
+	<div class="wraper1" id="two">
+			<h1>two</h1>
+			<div class="form">
+				<p>h2</p>
+				<input type="text" placeholder="text">
+				<button type="submit">submit</button>
+			</div>
+		</div>
+	<div class="wraper1" id="there">
+			<h1>thee</h1>
+		</div>
+	<div class="wraper1" id="four">
+			
+		</div>
+	<div class="wraper1" id="five">
+			<h1>fibe</h1>
+		</div>
+	</div>
+	
+
+	
+	
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+	<script>
+
+
+		$('.menu-toggle').click(function() {
+		  $('ul').toggleClass('opening');
+		  $(this).toggleClass('open');
+		})
+
+
+		$('.header-menu ul li a').on('click', function(){
+			$('.header-menu ul li a').removeClass('active');
+			$(this).addClass('active');
+
+		})
+
+		document.querySelectorAll('a[href^="#"]').forEach($anchor => {
+		    $anchor.addEventListener('click', function (e) {
+		        e.preventDefault();
+		        document.querySelector(this.getAttribute('href')).scrollIntoView({
+		            behavior: 'smooth',
+		            block: 'start',
+		        });
+		    });
+		});
+  
+	    $(window).scroll(function(){
+		    let scrollPos = $(this).scrollTop();
+		    let scrollDistance = scrollPos + 130;
+	    
+		    $(".header-menu ul li a[href^='#']").each(function () {
+					let currLink = $(this);
+					let refElement = $(currLink.attr("href"));
+					if (refElement.position().top <= scrollDistance && refElement.position().top + refElement.height() > scrollDistance) {
+						$(".header-menu ul li a").removeClass("active");
+						currLink.addClass("active");
+					}
+					else {
+						currLink.removeClass("active");
+					}
+				});
+		  });
+
+		
+		lastScroll = 0;
+		$(window).bind('scroll', function (){
+			 var scroll = $(window).scrollTop();
+			if (lastScroll - scroll <= 400 ) {
+				$('.site-nav').addClass('menu-fixed');
+			}else{
+				$('.site-nav').removeClass('menu-fixed');
+			}
+			lastScroll = scroll;
+		})
+
+
+		$('.wraper1 h1').on('click', function (){
+			$('.wraper1 ul' ).slideToggle('slow');
+
+		})
+
+		
+
+	</script>
+</body>
+</html>
+
